@@ -21,6 +21,7 @@ import static org.hamcrest.Matchers.not;
 
 import android.view.View;
 
+import ru.iteco.fmhandroid.dto.NewsWithCategory;
 import ru.iteco.fmhandroid.ui.Data.Helper;
 import ru.iteco.fmhandroid.ui.Data.Utility;
 
@@ -34,6 +35,8 @@ public class CreateNews {
     private final ViewInteraction description = Espresso.onView(withId(R.id.news_item_description_text_input_edit_text));
     private final ViewInteraction saveButton = Espresso.onView(withId(R.id.save_button));
     private final ViewInteraction sortButton = onView(withId(R.id.sort_news_material_button));
+    private String NewsMessage = "Хоспис открылся";
+    private String NewsMessage2 = "Хоспис открывается в январе";
 
     public void waitingPageLoad() {
         Allure.step("Ожидание загрузки страницы");
@@ -55,10 +58,10 @@ public class CreateNews {
     public void createNews() {
         Allure.step("Создание второй новости");
         categoryBox.perform(replaceText(Helper.getCategory(1)));
-        titleBox.perform(replaceText("Скоро открытие хосписа"));
+        titleBox.perform(replaceText(NewsMessage));
         publicationDate.perform(replaceText(Helper.getСurrentDate()));
         time.perform(replaceText(Helper.getСurrentTime(0)));
-        description.perform(replaceText("Хоспис открывается в январе"));
+        description.perform(replaceText(NewsMessage2));
         closeSoftKeyboard();
         saveButton.perform(click());
     }

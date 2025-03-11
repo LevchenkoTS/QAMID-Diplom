@@ -25,6 +25,7 @@ public class OurMissionTest {
     private Authorization authPage = new Authorization();
     private Menu menuBar = new Menu();
     private OurMission ourMissionPage = new OurMission();
+    private String missionText= "Нет шаблона и стандарта, есть только дух, который живет в разных домах по-разному. Но всегда он добрый, любящий и помогающий.";
     @Rule
     public ActivityScenarioRule<AppActivity> mActivityScenarioRule =
             new ActivityScenarioRule<>(AppActivity.class);
@@ -51,6 +52,6 @@ public class OurMissionTest {
     @Test
     public void shouldBeTextVisibleOnPosition() {
         ourMissionPage.clickView(1);
-        ourMissionPage.textCardVisible("Нет шаблона и стандарта, есть только дух, который живет в разных домах по-разному. Но всегда он добрый, любящий и помогающий.");
+        ourMissionPage.textCardVisible(missionText);
     }
 }

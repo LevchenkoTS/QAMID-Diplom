@@ -2,6 +2,7 @@ package ru.iteco.fmhandroid.ui.tests;
 
 import android.view.View;
 
+import androidx.test.core.app.ActivityScenario;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.filters.LargeTest;
 
@@ -32,13 +33,17 @@ public class CreateNewsTest {
     private Menu menu = new Menu();
     private ControlPanel controlPanel = new ControlPanel();
     private ru.iteco.fmhandroid.ui.page.CreateNews createNews = new CreateNews();
-    private View decorView;
+//    private View decorView;
+    private String NewsMessage = "Хоспис открылся";
+    private String toastMessage = "Fill empty fields";
 
     @Rule
     public ActivityScenarioRule<AppActivity> mActivityScenarioRule =
             new ActivityScenarioRule<>(AppActivity.class);
+    private View decorView;
 
     @Before
+
     public void setUp() {
         try {
             menu.openNewsPage();
@@ -52,6 +57,12 @@ public class CreateNewsTest {
             controlPanel.clickCreate();
             createNews.waitingPageLoad();
         }
+        mActivityScenarioRule.getScenario().onActivity(new ActivityScenario.ActivityAction<AppActivity>() {
+            @Override
+            public void perform(AppActivity activity) {
+                decorView = activity.getWindow().getDecorView();
+            }
+        });
     }
 
     @After
@@ -66,7 +77,7 @@ public class CreateNewsTest {
         createNews.createNews();
         controlPanel.waitingPageLoad();
         controlPanel.clickSort();
-        controlPanel.titleNewsVisible("Скоро открытие хосписа");
+        controlPanel.titleNewsVisible(NewsMessage);
     }
 
     @Epic("Негативный")
@@ -75,6 +86,6 @@ public class CreateNewsTest {
     public void shouldBeCreateEmptyNews() {
         createNews.createEmptyNews();
         controlPanel.waitingPageLoad();
-        createNews.errorMessageText("Fill empty fields", decorView);
+        createNews.errorMessageText(toastMessage, decorView);
     }
 }

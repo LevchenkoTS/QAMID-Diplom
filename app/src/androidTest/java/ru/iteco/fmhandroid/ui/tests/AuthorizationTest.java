@@ -2,6 +2,7 @@ package ru.iteco.fmhandroid.ui.tests;
 
 import android.view.View;
 
+import androidx.test.core.app.ActivityScenario;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.filters.LargeTest;
 
@@ -28,6 +29,8 @@ public class AuthorizationTest {
     private Menu menuBar = new Menu();
     private Main mainPage = new Main();
     private View decorView;
+    private String errorEmptyText = "Login and password cannot be empty";
+    private String errorTextIncorrect = "Incorrect login or password.";
 
     @Rule
     public ActivityScenarioRule<AppActivity> mActivityScenarioRule =
@@ -35,12 +38,18 @@ public class AuthorizationTest {
 
     @Before
     public void setUp() {
-        try {
-            authPage.waitingPageLoad();
-        } catch (Exception e) {
-            menuBar.logout();
-            authPage.waitingPageLoad();
-        }
+//        try {
+//            authPage.waitingPageLoad();
+//        } catch (Exception e) {
+//            menuBar.logout();
+//            authPage.waitingPageLoad();
+//        }
+        mActivityScenarioRule.getScenario().onActivity(new ActivityScenario.ActivityAction<AppActivity>() {
+            @Override
+            public void perform(AppActivity activity) {
+                decorView = activity.getWindow().getDecorView();
+            }
+        });
     }
 
 
@@ -72,7 +81,7 @@ public class AuthorizationTest {
         authPage.addLogin(Helper.generateInvalidLogin("en"));
         authPage.addPassword(Helper.getValidPassword());
         authPage.clickButton();
-        authPage.errorMessageText("Incorrect login or password.", decorView);
+        authPage.errorMessageText(errorTextIncorrect, decorView);
     }
 
     @Epic("Негативный")
@@ -82,7 +91,7 @@ public class AuthorizationTest {
         authPage.addLogin(Helper.getValidLogin());
         authPage.addPassword(Helper.generateInvalidPassword("en"));
         authPage.clickButton();
-        authPage.errorMessageText("Incorrect login or password.", decorView);
+        authPage.errorMessageText(errorTextIncorrect, decorView);
     }
 
     @Epic("Негативный")
@@ -90,7 +99,7 @@ public class AuthorizationTest {
     @Test
     public void shouldTryAuthWithEmptyFields() {
         authPage.clickButton();
-        authPage.errorMessageText("Login and password cannot be empty", decorView);
+        authPage.errorMessageText(errorEmptyText, decorView);
     }
 
 }
