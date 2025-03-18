@@ -35,7 +35,7 @@ public class CreateNews {
     private final ViewInteraction description = Espresso.onView(withId(R.id.news_item_description_text_input_edit_text));
     private final ViewInteraction saveButton = Espresso.onView(withId(R.id.save_button));
     private final ViewInteraction sortButton = onView(withId(R.id.sort_news_material_button));
-    private String NewsMessage = "Хоспис открылся";
+    private String NewsMessage = "Хоспис открывается";
     private String NewsMessage2 = "Хоспис открывается в январе";
 
     public void waitingPageLoad() {
@@ -69,8 +69,7 @@ public class CreateNews {
 
     public void errorMessageText(String text, View decorView) {
         Allure.step("Появление текста ошибки");
-        onView(withText(text))
-                .inRoot(withDecorView(not(decorView)))
-                .check(matches(isDisplayed()));
+        onView(withText(text)).inRoot(withDecorView(not(decorView))).check(matches(isDisplayed()));
     }
+
 }

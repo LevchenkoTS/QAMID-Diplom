@@ -42,10 +42,6 @@ public class OurMissionTest {
         }
     }
 
-    @After
-    public void setUpLogOut() {
-        menuBar.logout();
-    }
 
     @Epic("Позитивный")
     @Description("Разворацивание карточки цитаты (id 16)")

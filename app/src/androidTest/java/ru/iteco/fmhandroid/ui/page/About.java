@@ -14,14 +14,10 @@ import ru.iteco.fmhandroid.ui.Data.Utility;
 
 public class About {
 
-    private final ViewInteraction titleVersion = onView(withId(R.id.about_version_title_text_view));
-    private final ViewInteraction versionValue = onView(withId(R.id.about_version_value_text_view));
-    private final ViewInteraction privacyPolicy = onView(withId(R.id.about_privacy_policy_label_text_view));
     private final ViewInteraction privacyPolicyLinc = onView(withId(R.id.about_privacy_policy_value_text_view));
-    private final ViewInteraction termsOfUse = onView(withId(R.id.about_terms_of_use_label_text_view));
+
     private final ViewInteraction termsOfUseLinc = onView(withId(R.id.about_terms_of_use_value_text_view));
-    private final ViewInteraction infoLabel = onView(withId(R.id.about_company_info_label_text_view));
-    private final ViewInteraction backButton = onView(withId(R.id.about_back_image_button));
+
 
     public void waitingPageLoad() {
         Allure.step("Ожидание загрузки страницы");

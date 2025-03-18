@@ -16,10 +16,8 @@ import ru.iteco.fmhandroid.ui.Data.Utility;
 
 public class Menu {
     private final ViewInteraction mainMenu = onView(withId(R.id.main_menu_image_button));
-    private final ViewInteraction mainButton = onView(withText("Main"));
     private final ViewInteraction newsButton = onView(withText("News"));
     private final ViewInteraction aboutButton = onView(withText("About"));
-    private final ViewInteraction image = onView(withId(R.id.trademark_image_view));
     private final ViewInteraction ourMissionButton = onView(withId(R.id.our_mission_image_button));
     private final ViewInteraction profileButton = onView(withId(R.id.authorization_image_button));
 

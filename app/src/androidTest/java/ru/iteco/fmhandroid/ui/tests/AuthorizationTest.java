@@ -38,12 +38,12 @@ public class AuthorizationTest {
 
     @Before
     public void setUp() {
-//        try {
-//            authPage.waitingPageLoad();
-//        } catch (Exception e) {
-//            menuBar.logout();
-//            authPage.waitingPageLoad();
-//        }
+        try {
+            authPage.waitingPageLoad();
+        } catch (Exception e) {
+            menuBar.logout();
+            authPage.waitingPageLoad();
+        }
         mActivityScenarioRule.getScenario().onActivity(new ActivityScenario.ActivityAction<AppActivity>() {
             @Override
             public void perform(AppActivity activity) {

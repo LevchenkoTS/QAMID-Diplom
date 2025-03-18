@@ -48,11 +48,6 @@ public class NewsFilterTest {
         }
     }
 
-    @After
-    public void setUpLogOut() {
-        menu.logout();
-    }
-
     @Epic("Позитивный")
     @Description("Фильтрация новостей (id 9)")
     @Test

@@ -24,12 +24,6 @@ public class News {
     private final ViewInteraction sortButton = onView(withId(R.id.sort_news_material_button));
     private final ViewInteraction filterButton = onView(withId(R.id.filter_news_material_button));
     private final ViewInteraction controlPanelButton = onView(withId(R.id.edit_news_material_button));
-//    private final ViewInteraction cardNews = onView(withId(R.id.news_item_material_card_view));
-//    private final ViewInteraction imageNews = onView(withId(R.id.category_icon_image_view));
-//    private final ViewInteraction dateNews = onView(withId(R.id.news_item_date_text_view));
-//    private final ViewInteraction titleNews = onView(withId(R.id.news_item_title_text_view));
-//    private final ViewInteraction textNews = onView(withId(R.id.news_item_description_text_view));
-//    private final ViewInteraction viewNewsImage = onView(withId(R.id.view_news_item_image_view));
     private final ViewInteraction viewNewsButton = onView(withId(R.id.news_list_recycler_view));
 
     public void waitingPageLoad() {

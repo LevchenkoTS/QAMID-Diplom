@@ -33,8 +33,7 @@ public class CreateNewsTest {
     private Menu menu = new Menu();
     private ControlPanel controlPanel = new ControlPanel();
     private ru.iteco.fmhandroid.ui.page.CreateNews createNews = new CreateNews();
-//    private View decorView;
-    private String NewsMessage = "Хоспис открылся";
+    private String NewsMessage = "Хоспис открывается";
     private String toastMessage = "Fill empty fields";
 
     @Rule
@@ -65,18 +64,12 @@ public class CreateNewsTest {
         });
     }
 
-    @After
-    public void setUpLogOut() {
-        menu.logout();
-    }
 
     @Epic("Позитивный")
     @Description("Добавление новой новости (id 8)")
     @Test
     public void shouldBeCreateNews() {
         createNews.createNews();
-        controlPanel.waitingPageLoad();
-        controlPanel.clickSort();
         controlPanel.titleNewsVisible(NewsMessage);
     }
 
@@ -85,7 +78,6 @@ public class CreateNewsTest {
     @Test
     public void shouldBeCreateEmptyNews() {
         createNews.createEmptyNews();
-        controlPanel.waitingPageLoad();
         createNews.errorMessageText(toastMessage, decorView);
     }
 }
