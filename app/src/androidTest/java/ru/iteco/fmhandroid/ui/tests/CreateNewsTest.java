@@ -33,7 +33,7 @@ public class CreateNewsTest {
     private Menu menu = new Menu();
     private ControlPanel controlPanel = new ControlPanel();
     private ru.iteco.fmhandroid.ui.page.CreateNews createNews = new CreateNews();
-    private String NewsMessage = "Открытие";
+    private String NewsMessage = "Открытие хосписа";
     private String toastMessage = "Fill empty fields";
 
     @Rule

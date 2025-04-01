@@ -35,7 +35,7 @@ public class CreateNews {
     private final ViewInteraction description = Espresso.onView(withId(R.id.news_item_description_text_input_edit_text));
     private final ViewInteraction saveButton = Espresso.onView(withId(R.id.save_button));
     private final ViewInteraction sortButton = onView(withId(R.id.sort_news_material_button));
-    private String NewsMessage = "Открытие";
+    private String NewsMessage = "Открытие хосписа";
     private String NewsMessage2 = "Хоспис открывается в январе";
 
     public void waitingPageLoad() {
