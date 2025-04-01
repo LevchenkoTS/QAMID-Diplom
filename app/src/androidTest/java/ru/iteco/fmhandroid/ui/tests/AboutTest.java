@@ -41,7 +41,7 @@ public class AboutTest {
         try {
             menu.openAboutPage();
         } catch (Exception e) {
-//            auth.authUser();
+            auth.authUser();
             menu.openAboutPage();
             about.waitingPageLoad();
         }
